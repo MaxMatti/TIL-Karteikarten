@@ -2,6 +2,7 @@
 
 \usepackage[english,ngerman]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
 
 \begin{document}
 \card{DTM}{\[tbd\]}
@@ -20,4 +21,93 @@
 \card{Ackermannfunktion}{\[tbd\]}
 \card{Topologie}{\[tbd\]}
 \card{Gödelsche unvollständigkeitssätze}{\[tbd\]}
+\card{LOOP-Programm: Definition}{\[tbd\]}
+\card{LOOP-Programm: ADD-Funktion}{
+	\begin{equation*}
+	\begin{aligned}
+ADD x_1 x_2:\\
+x_0 := x_1 + 0;\\
+LOOP x_2 DO x_0 = x_0 + 1 END
+	\end{aligned}
+	\end{equation*}
+}
+\card{LOOP-Programm: SUB-Funktion}{
+	\begin{equation*}
+	\begin{aligned}
+SUB x_1 x_2:\\
+x_0 := x_1 + 0;\\
+LOOP x_2 DO x_0 = x_0 - 1 END
+	\end{aligned}
+	\end{equation*}
+}
+\card{LOOP-Programm: MUL-Funktion}{
+	\begin{equation*}
+	\begin{aligned}
+MUL x_1 x_2:\\
+x_0 := x_1 + 0;\\
+LOOP x_2 DO ADD x_0 x_1 END
+	\end{aligned}
+	\end{equation*}
+}
+\card{LOOP-Programm: POT-Funktion}{
+	\begin{equation*}
+	\begin{aligned}
+POT x_1 x_2:\\
+x_0 := x_1 + 0;\\
+LOOP x_2 DO MUL x_0 x_1 END
+	\end{aligned}
+	\end{equation*}
+}
+\card{LOOP-Programm: DIV-Funktion}{\[tbd\]}
+\card{LOOP-Programm: MAX-Funktion}{
+	\begin{equation*}
+	\begin{aligned}
+MAX x_1 x_2:\\
+x_0 := x_1 + 0;\\
+SUB x_0 x_2;\\
+ADD x_0 x_2
+	\end{aligned}
+	\end{equation*}
+}
+\card{LOOP-Programm: MIN-Funktion}{
+	\begin{equation*}
+	\begin{aligned}
+MIN x_1 x_2:\\
+x_0 = x_1 + 0;\\
+MAX x_1 x_2;\\
+ADD x_0 x_2;\\
+SUB x_0 x_1
+	\end{aligned}
+	\end{equation*}
+}
+\card{LOOP-Programm: MOD-Funktion}{
+	\begin{equation*}
+	\begin{aligned}
+MOD x_1 x_2:\\
+LOOP x_2 DO:\\
+	LOOP x_1 DO x_0 = x_1 + 0 END;\\
+	SUB x_1 x_2\\
+END
+	\end{aligned}
+	\end{equation*}
+}
+\card{LOOP-Programm: GGT-Funktion}{
+	\begin{equation*}
+	\begin{aligned}
+GGT x_1 x_2:\\
+x_4 = x_1 + 0;\\
+LOOP x_4 DO:\\
+	LOOP x_2 DO:\\
+		x_5 = x_2 + 0;\\
+		MOD x_5 x_1;\\
+		x_1 = x_2 + 0\\
+	END;\\
+	x_2 = x_5 + 0\\
+END;\\
+x_0 = x_1
+	\end{aligned}
+	\end{equation*}
+}
+\card{WHILE-Programm: Definition}{\[tbd\]}
+\card{Kolmogorov-Komplexität}{\[tbd\]}
 \end{document}
