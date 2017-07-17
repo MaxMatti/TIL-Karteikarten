@@ -1,0 +1,3 @@
+MUL $x_1$ $x_2$:
+$x_0$ := $x_1$ + 0;
+LOOP $x_2$ DO ADD $x_0$ $x_1$ END

@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{listings}
 
 % This reduces the equation width by reducing the space between symbols in an equation
 \medmuskip=0mu
@@ -12,6 +13,9 @@
 
 % This creates the command used for empty words in turing machines. Copied from lecture sources.
 \newcommand{\blank}{\text{\textvisiblespace}}
+
+\renewcommand{\cardtextstylef}{}
+\renewcommand{\cardtextstyleb}{}
 
 \begin{document}
 \card{DTM\\Deterministische Turing-Maschine}{$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$\\$Q$...Zustandsmenge $\Sigma$...Eingabealphabet\\$\Gamma$...Bandalphabet mit $\Gamma\subseteq\Sigma\cup\{\blank\}$\\$\delta$...Übergangsfkt. $Q\times\Gamma\rightarrow Q\times\Gamma\times\{L,R,N\}$\\$q_0$...Startzustand $q_0\in Q$\\$F$...akzeptierende Endzustände $F \subseteq Q$}
@@ -33,109 +37,23 @@
 \card{Topologie}{\[tbd\]}
 \card{Gödelsche unvollständigkeitssätze}{\[tbd\]}
 \card{LOOP-Programm: Definition}{\[tbd\]}
-\card{LOOP-Programm: ADD-Funktion}{
-	\begin{equation*}
-	\begin{aligned}
-ADD x_1 x_2:\\
-x_0 := x_1 + 0;\\
-LOOP x_2 DO x_0 = x_0 + 1 END
-	\end{aligned}
-	\end{equation*}
-}
-\card{LOOP-Programm: SUB-Funktion}{
-	\begin{equation*}
-	\begin{aligned}
-SUB x_1 x_2:\\
-x_0 := x_1 + 0;\\
-LOOP x_2 DO x_0 = x_0 - 1 END
-	\end{aligned}
-	\end{equation*}
-}
-\card{LOOP-Programm: MUL-Funktion}{
-	\begin{equation*}
-	\begin{aligned}
-MUL x_1 x_2:\\
-x_0 := x_1 + 0;\\
-LOOP x_2 DO ADD x_0 x_1 END
-	\end{aligned}
-	\end{equation*}
-}
-\card{LOOP-Programm: POT-Funktion}{
-	\begin{equation*}
-	\begin{aligned}
-POT x_1 x_2:\\
-x_0 := x_1 + 0;\\
-LOOP x_2 DO MUL x_0 x_1 END
-	\end{aligned}
-	\end{equation*}
-}
+\card{LOOP-Programm: Eigenschaften}{\[tbd\]}
+\card{LOOP-Programm: ADD-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/add.txt}.}
+\card{LOOP-Programm: SUB-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/sub.txt}.}
+\card{LOOP-Programm: MUL-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/mul.txt}.}
+\card{LOOP-Programm: POT-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/pot.txt}.}
 \card{LOOP-Programm: DIV-Funktion}{\[tbd\]}
-\card{LOOP-Programm: MAX-Funktion}{
-	\begin{equation*}
-	\begin{aligned}
-MAX x_1 x_2:\\
-x_0 := x_1 + 0;\\
-SUB x_0 x_2;\\
-ADD x_0 x_2
-	\end{aligned}
-	\end{equation*}
-}
-\card{LOOP-Programm: MIN-Funktion}{
-	\begin{equation*}
-	\begin{aligned}
-MIN x_1 x_2:\\
-x_0 = x_1 + 0;\\
-MAX x_1 x_2;\\
-ADD x_0 x_2;\\
-SUB x_0 x_1
-	\end{aligned}
-	\end{equation*}
-}
-\card{LOOP-Programm: MOD-Funktion}{
-	\begin{equation*}
-	\begin{aligned}
-MOD x_1 x_2:\\
-LOOP x_2 DO:\\
-	LOOP x_1 DO x_0 = x_1 + 0 END;\\
-	SUB x_1 x_2\\
-END
-	\end{aligned}
-	\end{equation*}
-}
-\card{LOOP-Programm: GGT-Funktion}{
-	\begin{equation*}
-	\begin{aligned}
-GGT x_1 x_2:\\
-x_4 = x_1 + 0;\\
-LOOP x_4 DO:\\
-	LOOP x_2 DO:\\
-		x_5 = x_2 + 0;\\
-		MOD x_5 x_1;\\
-		x_1 = x_2 + 0\\
-	END;\\
-	x_2 = x_5 + 0\\
-END;\\
-x_0 = x_1
-	\end{aligned}
-	\end{equation*}
-}
-\card{LOOP-Programm: Fallunterscheidung}{
-	\begin{equation*}
-	\begin{aligned}
-IF x != 0 THEN P END:\\
-	LOOP x DO y := 1 END;\\
-	LOOP y DO P END\\
-	\end{aligned}
-	\end{equation*}
-}
-\card{WHILE-Programm: Definition}{\[tbd\]}
-\card{WHILE-Programm: Syntax}{\[tbd\]}
-\card{Kolmogorov-Komplexität}{\[tbd\]}
-\card{Many-One-Reduktion}{\[tbd\]}
-\card{Turing-Reduktion}{\[tbd\]}
-\card{Schubfachprinzip}{\[tbd\]}
-\card{Satz von Rice}{\[tbd\]}
-\card{Postsches Korrespondenzproblem}{\[tbd\]}
+\card{LOOP-Programm: MAX-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/max.txt}.}
+\card{LOOP-Programm: MIN-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/min.txt}.}
+\card{LOOP-Programm: MOD-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/mod.txt}.}
+\card{LOOP-Programm: GGT-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/ggt.txt}.}
+\card{LOOP-Programm: Fallunterscheidung}{\lstinputlisting[mathescape=true]{loop-programs/if.txt}.}
+\card{WHILE-Programm}{\lstinputlisting[mathescape=true]{loop-programs/while.txt}.}
+\card{Kolmogorov-Komplexität}{Maß für die Strukturiertheit einer Zeichenkette, gegeben durch die Länge des kürzesten Programms, das diese Zeichenkette erzeugt.}
+\card{Many-One-Reduktion}{Problem $A$ ist auf $B$ many-one-reduzierbar ($A \leq_m B$), falls es eine berechenbare Funktion $f:A\rightarrow B$ gibt.}
+\card{Schubfachprinzip}{Falls man $n$ Objekte auf $m$ Mengen ($n,m>0$) verteilt und $n>m$ gilt, gibt es mindestens eine Menge, die mehr als 1 Objekt enthält. Auch: Taubenschlagprinzip, Dirichlet-Prinzip.}
+\card{Satz von Rice}{Es ist unmöglich, eine beliebige, nicht-triviale Eigenschaft der erzeugten Funktion einer Turing-Maschine algorithmisch zu entscheiden. Trivial wäre "immer akzeptieren" oder "immer verwerfen".}
+\card{PKP oder PCP\\Postsches Korrespondenzproblem}{Beispiel für ein unentscheidbares Problem.}
 \card{Äquivalenzproblem}{\[tbd\]}
 \card{P, NP, coNP, PSPACE}{\[tbd\]}
 \card{{P,NP,PSPACE}-hart}{\[tbd\]}

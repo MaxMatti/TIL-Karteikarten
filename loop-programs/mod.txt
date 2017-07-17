@@ -1,0 +1,5 @@
+MOD $x_1$ $x_2$:
+LOOP $x_2$ DO:
+    LOOP $x_1$ DO $x_0$ = $x_1$ + 0 END;
+    SUB $x_1$ $x_2$
+END
