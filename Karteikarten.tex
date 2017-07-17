@@ -3,17 +3,28 @@
 \usepackage[english,ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{amssymb}
+
+% This reduces the equation width by reducing the space between symbols in an equation
+\medmuskip=0mu
+\thinmuskip=0mu
+\thickmuskip=0mu
+
+% This creates the command used for empty words in turing machines. Copied from lecture sources.
+\newcommand{\blank}{\text{\textvisiblespace}}
 
 \begin{document}
-\card{DTM\\Deterministische Turing-Maschine}{\[tbd\]}
-\card{NTM\\Nichtdeterministische Turing-Maschine}{\[tbd\]}
-\card{Entscheidungsproblem}{\[tbd\]}
-\card{(Un-)Entscheidbarkeit}{\[tbd\]}
-\card{Aufzählbarkeit}{\[tbd\]}
-\card{Abzählbarkeit}{\[tbd\]}
-\card{Überabzählbarkeit}{\[tbd\]}
-\card{Halteproblem}{\[tbd\]}
-\card{Cantor-Funktion}{\[tbd\]}
+\card{DTM\\Deterministische Turing-Maschine}{$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$\\$Q$...Zustandsmenge $\Sigma$...Eingabealphabet\\$\Gamma$...Bandalphabet mit $\Gamma\subseteq\Sigma\cup\{\blank\}$\\$\delta$...Übergangsfkt. $Q\times\Gamma\rightarrow Q\times\Gamma\times\{L,R,N\}$\\$q_0$...Startzustand $q_0\in Q$\\$F$...akzeptierende Endzustände $F \subseteq Q$}
+\card{NTM\\Nichtdeterministische Turing-Maschine}{$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$\\$Q$...Zustandsmenge $\Sigma$...Eingabealphabet\\$\Gamma$...Bandalphabet mit $\Gamma\subseteq\Sigma\cup\{\blank\}$\\$\delta$...Übergangsfkt. $Q\times\Gamma\rightarrow 2^{Q\times\Gamma\times\{L,R,N\}}$\\$q_0$...Startzustand $q_0\in Q$\\$F$...akzeptierende Endzustände $F \subseteq Q$}
+\card{Entscheidungsproblem}{Frage nach Entscheidbarkeit}
+\card{(Un-)Entscheidbarkeit}{Ob allen Elementen einer Menge eine Eigenschaft eindeutig nachgewiesen (bzw das Gegenteil nachgewiesen) werden kann.}
+\card{Semi-Entscheidbarkeit}{Ob den Elementen einer Menge, die die Eigenschaft haben, die Eigenschaft eindeutig nachgewiesen werden kann.}
+\card{Co-Semi-Entscheidbarkeit}{Ob den Elementen einer Menge, die die Eigenschaft nicht haben, das Gegenteil der Eigenschaft eindeutig nachgewiesen werden kann.}
+\card{Aufzählbarkeit}{Eigenschaft einer Menge, dass es eine "Generatorfunktion" gibt, die alle Elemente aufzählt}
+\card{Abzählbarkeit}{Menge, die die gleiche Mächtigkeit wie $\mathbb{N}$ hat (eindimensional unendlich bzw abzählbar unendlich)}
+\card{Überabzählbarkeit}{Eigenschaft einer Menge, nicht abzählbar zu sein (keine Bijektion auf $\mathbb{N}$)}
+\card{Halteproblem}{Frage, ob eine Maschine (zB eine TM) auf einer bestimmten Eingabe hält (oder in eine Endlosschleife geht). Ist unentscheidbar (semi-, nicht co-semi-), NP-hart}
+\card{Cantor-Funktion}{}
 \card{Cantor-Diagonalisierung}{\[tbd\]}
 \card{Cantors erstes Diagonalargument}{\[tbd\]}
 \card{Cantors zweites Diagonalargument}{\[tbd\]}
@@ -130,16 +141,19 @@ IF x != 0 THEN P END:\\
 \card{{P,NP,PSPACE}-hart}{\[tbd\]}
 \card{{P,NP,PSPACE}-vollständig}{\[tbd\]}
 \card{Wortproblem Deterministischer Endlicher Automaten}{\[tbd\]}
-\card{Erfüllbarkeitsproblem}{\[tbd\]}
+\card{SAT\\Erfüllbarkeitsproblem}{Entscheidungsproblem, ob eine aussagenlogische Formel erfüllbar ist}
 \card{Kleene-Stern}{\[tbd\]}
 \card{Liste von P-vollständigen Problemen}{\[tbd\]}
 \card{Liste von NP-vollständigen Problemen}{\[tbd\]}
 \card{Formalisieren (Ablauf)}{\[tbd\]}
-\card{SAT}{\[tbd\]}
 \card{3SAT}{\[tbd\]}
 \card{QBF}{\[tbd\]}
 \card{LBA\\Linear Bounded Automaton}{\[tbd\]}
 \card{Pränexform}{\[tbd\]}
 \card{Skolemform}{\[tbd\]}
 \card{Klauselform}{\[tbd\]}
+\card{$\models$}{\[tbd\]}
+\card{Resolution}{\[tbd\]}
+\card{Unifikator}{\[tbd\]}
+\card{Allgemeinster Unifikator}{\[tbd\]}
 \end{document}
