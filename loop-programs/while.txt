@@ -1,5 +1,0 @@
-P ::= x_i := x_j + c
-P ::= x_i := x_j - c
-P ::= P; P
-P ::= LOOP x_i DO P END
-P ::= WHILE x_i \neq 0 DO P END

@@ -76,37 +76,94 @@ Die Gödelschen Unvollständigkeitssätze weisen nach das es in hinreichend star
 P ist LOOP Programm, wenn von der Form:\\$x_i:=x_j+n$,\\$x_i:=x_j-n$,\\$LOOP x_i DO P_j END$,\\$p_i;p_j$
 \end{karte}
 \begin{karte}{LOOP-Programm: ADD-Funktion}
-\lstinputlisting[mathescape=true]{loop-programs/add.txt}
+\begin{lstlisting}[mathescape=true]
+ADD $x_1$ $x_2$:
+$x_0$ := $x_1$ + 0;
+LOOP $x_2$ DO $x_0$ = $x_0$ + 1 END
+\end{lstlisting}
 \end{karte}
 \begin{karte}{LOOP-Programm: SUB-Funktion}
-\lstinputlisting[mathescape=true]{loop-programs/sub.txt}
+\begin{lstlisting}[mathescape=true]
+SUB $x_1$ $x_2$:
+$x_0$ := $x_1$ + 0;
+LOOP $x_2$ DO $x_0$ = $x_0$ - 1 END
+\end{lstlisting}
 \end{karte}
 \begin{karte}{LOOP-Programm: MUL-Funktion}
-\lstinputlisting[mathescape=true]{loop-programs/mul.txt}
+\begin{lstlisting}[mathescape=true]
+MUL $x_1$ $x_2$:
+$x_0$ := $x_1$ + 0;
+LOOP $x_2$ DO ADD $x_0$ $x_1$ END
+\end{lstlisting}
 \end{karte}
 \begin{karte}{LOOP-Programm: POT-Funktion}
-\lstinputlisting[mathescape=true]{loop-programs/pot.txt}
+\begin{lstlisting}[mathescape=true]
+POT $x_1$ $x_2$:
+$x_0$ := $x_1$ + 0;
+LOOP $x_2$ DO MUL $x_0$ $x_1$ END
+\end{lstlisting}
 \end{karte}
 \begin{karte}{LOOP-Programm: DIV-Funktion}
+\begin{lstlisting}[mathescape=true]
+\end{lstlisting}
 \[tbd\]
 \end{karte}
 \begin{karte}{LOOP-Programm: MAX-Funktion}
-\lstinputlisting[mathescape=true]{loop-programs/max.txt}
+\begin{lstlisting}[mathescape=true]
+MAX $x_1$ $x_2$:
+$x_0$ := $x_1$ + 0;
+SUB $x_0$ $x_2$;
+ADD $x_0$ $x_2$
+\end{lstlisting}
 \end{karte}
 \begin{karte}{LOOP-Programm: MIN-Funktion}
-\lstinputlisting[mathescape=true]{loop-programs/min.txt}
+\begin{lstlisting}[mathescape=true]
+MIN $x_1$ $x_2$:
+$x_0$ = $x_1$ + 0;
+MAX $x_1$ $x_2$;
+ADD $x_0$ $x_2$;
+SUB $x_0$ $x_1$
+\end{lstlisting}
 \end{karte}
 \begin{karte}{LOOP-Programm: MOD-Funktion}
-\lstinputlisting[mathescape=true]{loop-programs/mod.txt}
+\begin{lstlisting}[mathescape=true]
+MOD $x_1$ $x_2$:
+LOOP $x_2$ DO:
+    LOOP $x_1$ DO $x_0$ = $x_1$ + 0 END;
+    SUB $x_1$ $x_2$
+END
+\end{lstlisting}
 \end{karte}
 \begin{karte}{LOOP-Programm: GGT-Funktion}
-\lstinputlisting[mathescape=true]{loop-programs/ggt.txt}
+\begin{lstlisting}[mathescape=true]
+GGT $x_1$ $x_2$:
+$x_4$ = $x_1$ + 0;
+LOOP $x_4$ DO:
+    LOOP $x_2$ DO:
+        $x_5$ = $x_2$ + 0;
+        MOD $x_5$ $x_1$;
+        $x_1$ = $x_2$ + 0
+    END;
+    $x_2$ = $x_5$ + 0
+END;
+$x_0$ = $x_1$
+\end{lstlisting}
 \end{karte}
 \begin{karte}{LOOP-Programm: Fallunterscheidung}
-\lstinputlisting[mathescape=true]{loop-programs/if.txt}
+\begin{lstlisting}[mathescape=true]
+IF $x_0$ != 0 THEN P END:
+    LOOP $x_0$ DO $x_1$ := 1 END;
+    LOOP $x_1$ DO P END
+\end{lstlisting}
 \end{karte}
 \begin{karte}{WHILE-Programm}
-\lstinputlisting[mathescape=true]{loop-programs/while.txt}
+\begin{lstlisting}[mathescape=true]
+P ::= x_i := x_j + c
+P ::= x_i := x_j - c
+P ::= P; P
+P ::= LOOP x_i DO P END
+P ::= WHILE x_i \neq 0 DO P END
+\end{lstlisting}
 \end{karte}
 \begin{karte}{Kolmogorov-Komplexität}
 Maß für die Strukturiertheit einer Zeichenkette, gegeben durch die Länge des kürzesten Programms, das diese Zeichenkette erzeugt.

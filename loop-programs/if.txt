@@ -1,3 +1,0 @@
-IF $x_0$ != 0 THEN P END:
-    LOOP $x_0$ DO $x_1$ := 1 END;
-    LOOP $x_1$ DO P END
