@@ -1,4 +1,4 @@
-\documentclass[frontgrid,backgrid]{flacards}
+\documentclass[a7paper,print,grid=both]{kartei}
 
 \usepackage[english,ngerman]{babel}
 \usepackage[utf8]{inputenc}
@@ -14,66 +14,182 @@
 % This creates the command used for empty words in turing machines. Copied from lecture sources.
 \newcommand{\blank}{\text{\textvisiblespace}}
 
-\renewcommand{\cardtextstylef}{}
-\renewcommand{\cardtextstyleb}{}
+%\renewcommand{\cardtextstylef}{}
+%\renewcommand{\cardtextstyleb}{}
 
 \begin{document}
-\card{DTM\\Deterministische Turing-Maschine}{$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$\\$Q$...Zustandsmenge $\Sigma$...Eingabealphabet\\$\Gamma$...Bandalphabet mit $\Gamma\subseteq\Sigma\cup\{\blank\}$\\$\delta$...Übergangsfkt. $Q\times\Gamma\rightarrow Q\times\Gamma\times\{L,R,N\}$\\$q_0$...Startzustand $q_0\in Q$\\$F$...akzeptierende Endzustände $F \subseteq Q$}
-\card{NTM\\Nichtdeterministische Turing-Maschine}{$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$\\$Q$...Zustandsmenge $\Sigma$...Eingabealphabet\\$\Gamma$...Bandalphabet mit $\Gamma\subseteq\Sigma\cup\{\blank\}$\\$\delta$...Übergangsfkt. $Q\times\Gamma\rightarrow 2^{Q\times\Gamma\times\{L,R,N\}}$\\$q_0$...Startzustand $q_0\in Q$\\$F$...akzeptierende Endzustände $F \subseteq Q$}
-\card{Entscheidungsproblem}{Frage nach Entscheidbarkeit}
-\card{(Un-)Entscheidbarkeit}{Ob allen Elementen einer Menge eine Eigenschaft eindeutig nachgewiesen (bzw das Gegenteil nachgewiesen) werden kann.}
-\card{Semi-Entscheidbarkeit}{Ob den Elementen einer Menge, die die Eigenschaft haben, die Eigenschaft eindeutig nachgewiesen werden kann.}
-\card{Co-Semi-Entscheidbarkeit}{Ob den Elementen einer Menge, die die Eigenschaft nicht haben, das Gegenteil der Eigenschaft eindeutig nachgewiesen werden kann.}
-\card{Aufzählbarkeit}{Eigenschaft einer Menge, dass es eine "Generatorfunktion" gibt, die alle Elemente aufzählt}
-\card{Abzählbarkeit}{Menge, die die gleiche Mächtigkeit wie $\mathbb{N}$ hat (eindimensional unendlich bzw abzählbar unendlich)}
-\card{Überabzählbarkeit}{Eigenschaft einer Menge, nicht abzählbar zu sein (keine Bijektion auf $\mathbb{N}$)}
-\card{Halteproblem}{Frage, ob eine Maschine (zB eine TM) auf einer bestimmten Eingabe hält (oder in eine Endlosschleife geht). Ist unentscheidbar (semi-, nicht co-semi-), NP-hart}
-\card{Cantor-Funktion}{Die Verteilungsfunktion der Cantorverteilung}
-\card{Cantor-Diagonalisierung}{Bezeichung der von Cantor entwickelten Diagonalverfahren}
-\card{Cantors erstes Diagonalargument}{Die Mächtigkeit zweier Mengen A und B ist genau gleich, wenn  eine Bijektion zwischen A und B gibt}
-\card{Cantors zweites Diagonalargument}{sei $r_i$: $r_1=0,b_{11}b_{12}b_{13}...$\\$r_1=0,b_{21}b_{22}b_{23}...$\\$r_1=0,b_{31}b_{32}b_{33}...$\\$\bar{r}=0,\bar{r}_{11}\bar{r}_{22}\bar{r}_{33}...$\\$\bar{r}$ ist dann nicht in der Menge von $r_i$}
-\card{Cantorsche Paarungsfunktion}{Basiert auf dem Diagonalargument von Cantor $(\mathbb{N}\times\mathbb{N}\to\mathbb{N})$}
-\card{Ackermannfunktion}{Funktion der Form: $\varphi(a, b, 0)=a+b\,$\\$\varphi(a, 0, n+1)=\alpha(a, n)\,$\\$\varphi(a, b+1, n+1)=\varphi(a, \varphi(a, b, n+1), n)\,$ oder ähnlich mit extrem schnellem Wachstum}
-\card{Topologie}{\[tbd\]}
-\card{Gödelsche Unvollständigkeitssätze}{Die Gödelschen Unvollständigkeitssätze weisen nach das es in hinreichend starken Systemen, Aussagen geben muss die man weder formal beweisen noch widerlegen kann. Es gibt den ersten und den 2. Unvollständigkeitssatz}
-\card{LOOP-Programm: Definition}{P ist LOOP Programm, wenn von der Form:\\$x_i:=x_j+n$,\\$x_i:=x_j-n$,\\$LOOP x_i DO P_j END$,\\$p_i;p_j$}
-\card{LOOP-Programm: ADD-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/add.txt}.}
-\card{LOOP-Programm: SUB-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/sub.txt}.}
-\card{LOOP-Programm: MUL-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/mul.txt}.}
-\card{LOOP-Programm: POT-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/pot.txt}.}
-\card{LOOP-Programm: DIV-Funktion}{\[tbd\]}
-\card{LOOP-Programm: MAX-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/max.txt}.}
-\card{LOOP-Programm: MIN-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/min.txt}.}
-\card{LOOP-Programm: MOD-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/mod.txt}.}
-\card{LOOP-Programm: GGT-Funktion}{\lstinputlisting[mathescape=true]{loop-programs/ggt.txt}.}
-\card{LOOP-Programm: Fallunterscheidung}{\lstinputlisting[mathescape=true]{loop-programs/if.txt}.}
-\card{WHILE-Programm}{\lstinputlisting[mathescape=true]{loop-programs/while.txt}.}
-\card{Kolmogorov-Komplexität}{Maß für die Strukturiertheit einer Zeichenkette, gegeben durch die Länge des kürzesten Programms, das diese Zeichenkette erzeugt.}
-\card{Many-One-Reduktion}{Problem $A$ ist auf $B$ many-one-reduzierbar ($A \leq_m B$), falls es eine berechenbare Funktion $f:A\rightarrow B$ gibt.}
-\card{Schubfachprinzip}{Falls man $n$ Objekte auf $m$ Mengen ($n,m>0$) verteilt und $n>m$ gilt, gibt es mindestens eine Menge, die mehr als 1 Objekt enthält. Auch: Taubenschlagprinzip, Dirichlet-Prinzip.}
-\card{Satz von Rice}{Es ist unmöglich, eine beliebige, nicht-triviale Eigenschaft der erzeugten Funktion einer Turing-Maschine algorithmisch zu entscheiden. Trivial wäre "immer akzeptieren" oder "immer verwerfen".}
-\card{PKP oder PCP\\Postsches Korrespondenzproblem}{Beispiel für ein unentscheidbares Problem.}
-\card{Äquivalenzproblem}{\[tbd\]}
-\card{P, NP, coNP, PSPACE}{\[tbd\]}
-\card{{P,NP,PSPACE}-hart}{\[tbd\]}
-\card{{P,NP,PSPACE}-vollständig}{\[tbd\]}
-\card{Wortproblem Deterministischer Endlicher Automaten}{\[tbd\]}
-\card{SAT\\Erfüllbarkeitsproblem}{Entscheidungsproblem, ob eine aussagenlogische Formel erfüllbar ist}
-\card{Kleene-Stern}{\[tbd\]}
-\card{Liste von P-vollständigen Problemen}{\[tbd\]}
-\card{Liste von NP-vollständigen Problemen}{\[tbd\]}
-\card{Formalisieren (Ablauf)}{\[tbd\]}
-\card{3SAT}{\[tbd\]}
-\card{QBF}{\[tbd\]}
-\card{LBA\\Linear Bounded Automaton}{\[tbd\]}
-\card{Pränexform}{\[tbd\]}
-\card{Skolemform}{\[tbd\]}
-\card{Klauselform}{\[tbd\]}
-\card{$\models$}{\[tbd\]}
-\card{Resolutionsverfahren}{\[tbd\]}
-\card{Unifikator}{\[tbd\]}
-\card{Allgemeinster Unifikator}{\[tbd\]}
-\card{Herbrand-Universum}{\[tbd\]}
-\card{Herbrand-Modell}{\[tbd\]}
-\card{Herbrand-Expansion}{\[tbd\]}
+\begin{karte}{DTM\\Deterministische Turing-Maschine}
+$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$\\$Q$...Zustandsmenge $\Sigma$...Eingabealphabet\\$\Gamma$...Bandalphabet mit $\Gamma\subseteq\Sigma\cup\{\blank\}$\\$\delta$...Übergangsfkt. $Q\times\Gamma\rightarrow Q\times\Gamma\times\{L,R,N\}$\\$q_0$...Startzustand $q_0\in Q$\\$F$...akzeptierende Endzustände $F \subseteq Q$
+\end{karte}
+\begin{karte}{NTM\\Nichtdeterministische Turing-Maschine}
+$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$\\$Q$...Zustandsmenge $\Sigma$...Eingabealphabet\\$\Gamma$...Bandalphabet mit $\Gamma\subseteq\Sigma\cup\{\blank\}$\\$\delta$...Übergangsfkt. $Q\times\Gamma\rightarrow 2^{Q\times\Gamma\times\{L,R,N\}}$\\$q_0$...Startzustand $q_0\in Q$\\$F$...akzeptierende Endzustände $F \subseteq Q$
+\end{karte}
+\begin{karte}{Entscheidungsproblem}
+Frage nach Entscheidbarkeit
+\end{karte}
+\begin{karte}{(Un-)Entscheidbarkeit}
+Ob allen Elementen einer Menge eine Eigenschaft eindeutig nachgewiesen (bzw das Gegenteil nachgewiesen) werden kann.
+\end{karte}
+\begin{karte}{Semi-Entscheidbarkeit}
+Ob den Elementen einer Menge, die die Eigenschaft haben, die Eigenschaft eindeutig nachgewiesen werden kann.
+\end{karte}
+\begin{karte}{Co-Semi-Entscheidbarkeit}
+Ob den Elementen einer Menge, die die Eigenschaft nicht haben, das Gegenteil der Eigenschaft eindeutig nachgewiesen werden kann.
+\end{karte}
+\begin{karte}{Aufzählbarkeit}
+Eigenschaft einer Menge, dass es eine "Generatorfunktion" gibt, die alle Elemente aufzählt
+\end{karte}
+\begin{karte}{Abzählbarkeit}
+Menge, die die gleiche Mächtigkeit wie $\mathbb{N}$ hat (eindimensional unendlich bzw abzählbar unendlich)
+\end{karte}
+\begin{karte}{Überabzählbarkeit}
+Eigenschaft einer Menge, nicht abzählbar zu sein (keine Bijektion auf $\mathbb{N}$)
+\end{karte}
+\begin{karte}{Halteproblem}
+Frage, ob eine Maschine (zB eine TM) auf einer bestimmten Eingabe hält (oder in eine Endlosschleife geht). Ist unentscheidbar (semi-, nicht co-semi-), NP-hart
+\end{karte}
+\begin{karte}{Cantor-Funktion}
+Die Verteilungsfunktion der Cantorverteilung
+\end{karte}
+\begin{karte}{Cantor-Diagonalisierung}
+Bezeichung der von Cantor entwickelten Diagonalverfahren
+\end{karte}
+\begin{karte}{Cantors erstes Diagonalargument}
+Die Mächtigkeit zweier Mengen A und B ist genau gleich, wenn  eine Bijektion zwischen A und B gibt
+\end{karte}
+\begin{karte}{Cantors zweites Diagonalargument}
+sei $r_i$: $r_1=0,b_{11}b_{12}b_{13}...$\\$r_1=0,b_{21}b_{22}b_{23}...$\\$r_1=0,b_{31}b_{32}b_{33}...$\\$\bar{r}=0,\bar{r}_{11}\bar{r}_{22}\bar{r}_{33}...$\\$\bar{r}$ ist dann nicht in der Menge von $r_i$
+\end{karte}
+\begin{karte}{Cantorsche Paarungsfunktion}
+Basiert auf dem Diagonalargument von Cantor $(\mathbb{N}\times\mathbb{N}\to\mathbb{N})$
+\end{karte}
+\begin{karte}{Ackermannfunktion}
+Funktion der Form: $\varphi(a, b, 0)=a+b\,$\\$\varphi(a, 0, n+1)=\alpha(a, n)\,$\\$\varphi(a, b+1, n+1)=\varphi(a, \varphi(a, b, n+1), n)\,$ oder ähnlich mit extrem schnellem Wachstum
+\end{karte}
+\begin{karte}{Topologie}
+\[tbd\]
+\end{karte}
+\begin{karte}{Gödelsche Unvollständigkeitssätze}
+Die Gödelschen Unvollständigkeitssätze weisen nach das es in hinreichend starken Systemen, Aussagen geben muss die man weder formal beweisen noch widerlegen kann. Es gibt den ersten und den 2. Unvollständigkeitssatz
+\end{karte}
+\begin{karte}{LOOP-Programm: Definition}
+P ist LOOP Programm, wenn von der Form:\\$x_i:=x_j+n$,\\$x_i:=x_j-n$,\\$LOOP x_i DO P_j END$,\\$p_i;p_j$
+\end{karte}
+\begin{karte}{LOOP-Programm: ADD-Funktion}
+\lstinputlisting[mathescape=true]{loop-programs/add.txt}
+\end{karte}
+\begin{karte}{LOOP-Programm: SUB-Funktion}
+\lstinputlisting[mathescape=true]{loop-programs/sub.txt}
+\end{karte}
+\begin{karte}{LOOP-Programm: MUL-Funktion}
+\lstinputlisting[mathescape=true]{loop-programs/mul.txt}
+\end{karte}
+\begin{karte}{LOOP-Programm: POT-Funktion}
+\lstinputlisting[mathescape=true]{loop-programs/pot.txt}
+\end{karte}
+\begin{karte}{LOOP-Programm: DIV-Funktion}
+\[tbd\]
+\end{karte}
+\begin{karte}{LOOP-Programm: MAX-Funktion}
+\lstinputlisting[mathescape=true]{loop-programs/max.txt}
+\end{karte}
+\begin{karte}{LOOP-Programm: MIN-Funktion}
+\lstinputlisting[mathescape=true]{loop-programs/min.txt}
+\end{karte}
+\begin{karte}{LOOP-Programm: MOD-Funktion}
+\lstinputlisting[mathescape=true]{loop-programs/mod.txt}
+\end{karte}
+\begin{karte}{LOOP-Programm: GGT-Funktion}
+\lstinputlisting[mathescape=true]{loop-programs/ggt.txt}
+\end{karte}
+\begin{karte}{LOOP-Programm: Fallunterscheidung}
+\lstinputlisting[mathescape=true]{loop-programs/if.txt}
+\end{karte}
+\begin{karte}{WHILE-Programm}
+\lstinputlisting[mathescape=true]{loop-programs/while.txt}
+\end{karte}
+\begin{karte}{Kolmogorov-Komplexität}
+Maß für die Strukturiertheit einer Zeichenkette, gegeben durch die Länge des kürzesten Programms, das diese Zeichenkette erzeugt.
+\end{karte}
+\begin{karte}{Many-One-Reduktion}
+Problem $A$ ist auf $B$ many-one-reduzierbar ($A \leq_m B$), falls es eine berechenbare Funktion $f:A\rightarrow B$ gibt.
+\end{karte}
+\begin{karte}{Schubfachprinzip}
+Falls man $n$ Objekte auf $m$ Mengen ($n,m>0$) verteilt und $n>m$ gilt, gibt es mindestens eine Menge, die mehr als 1 Objekt enthält. Auch: Taubenschlagprinzip, Dirichlet-Prinzip.
+\end{karte}
+\begin{karte}{Satz von Rice}
+Es ist unmöglich, eine beliebige, nicht-triviale Eigenschaft der erzeugten Funktion einer Turing-Maschine algorithmisch zu entscheiden. Trivial wäre "immer akzeptieren" oder "immer verwerfen".
+\end{karte}
+\begin{karte}{PKP oder PCP\\Postsches Korrespondenzproblem}
+Beispiel für ein unentscheidbares Problem.
+\end{karte}
+\begin{karte}{Äquivalenzproblem}
+\[tbd\]
+\end{karte}
+\begin{karte}{P, NP, coNP, PSPACE}
+\[tbd\]
+\end{karte}
+\begin{karte}{(P,NP,PSPACE)-hart}
+\[tbd\]
+\end{karte}
+\begin{karte}{(P,NP,PSPACE)-vollständig}
+\[tbd\]
+\end{karte}
+\begin{karte}{Wortproblem Deterministischer Endlicher Automaten}
+\[tbd\]
+\end{karte}
+\begin{karte}{SAT\\Erfüllbarkeitsproblem}
+Entscheidungsproblem, ob eine aussagenlogische Formel erfüllbar ist
+\end{karte}
+\begin{karte}{Kleene-Stern}
+\[tbd\]
+\end{karte}
+\begin{karte}{Liste von P-vollständigen Problemen}
+\[tbd\]
+\end{karte}
+\begin{karte}{Liste von NP-vollständigen Problemen}
+\[tbd\]
+\end{karte}
+\begin{karte}{Formalisieren (Ablauf)}
+\[tbd\]
+\end{karte}
+\begin{karte}{3SAT}
+\[tbd\]
+\end{karte}
+\begin{karte}{QBF}
+\[tbd\]
+\end{karte}
+\begin{karte}{LBA\\Linear Bounded Automaton}
+\[tbd\]
+\end{karte}
+\begin{karte}{Pränexform}
+\[tbd\]
+\end{karte}
+\begin{karte}{Skolemform}
+\[tbd\]
+\end{karte}
+\begin{karte}{Klauselform}
+\[tbd\]
+\end{karte}
+\begin{karte}{$\models$}
+\[tbd\]
+\end{karte}
+\begin{karte}{Resolutionsverfahren}
+\[tbd\]
+\end{karte}
+\begin{karte}{Unifikator}
+\[tbd\]
+\end{karte}
+\begin{karte}{Allgemeinster Unifikator}
+\[tbd\]
+\end{karte}
+\begin{karte}{Herbrand-Universum}
+\[tbd\]
+\end{karte}
+\begin{karte}{Herbrand-Modell}
+\[tbd\]
+\end{karte}
+\begin{karte}{Herbrand-Expansion}
+\[tbd\]
+\end{karte}
 \end{document}
