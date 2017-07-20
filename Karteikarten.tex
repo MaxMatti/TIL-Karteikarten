@@ -6,38 +6,59 @@
 \usepackage{amssymb}
 \usepackage{listings}
 
-% This reduces the equation width by reducing the space between symbols in an equation
-\medmuskip=0mu
-\thinmuskip=0mu
-\thickmuskip=0mu
-
 % This creates the command used for empty words in turing machines. Copied from lecture sources.
 \newcommand{\blank}{\text{\textvisiblespace}}
 
-%\renewcommand{\cardtextstylef}{}
-%\renewcommand{\cardtextstyleb}{}
+\lstset{lineskip={-0.02cm}}
 
 \begin{document}
 \begin{karte}{DTM\\Deterministische Turing-Maschine}
-$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$\\$Q$...Zustandsmenge $\Sigma$...Eingabealphabet\\$\Gamma$...Bandalphabet mit $\Gamma\subseteq\Sigma\cup\{\blank\}$\\$\delta$...Übergangsfkt. $Q\times\Gamma\rightarrow Q\times\Gamma\times\{L,R,N\}$\\$q_0$...Startzustand $q_0\in Q$\\$F$...akzeptierende Endzustände $F \subseteq Q$
+$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$\\
+$Q$...Zustandsmenge\\
+$\Sigma$...Eingabealphabet\\
+$\Gamma$...Bandalphabet mit $\Gamma\subseteq\Sigma\cup\{\blank\}$\\
+$\delta$...Übergangsfkt. $Q\times\Gamma\rightarrow Q\times\Gamma\times\{L,R,N\}$\\
+$q_0$...Startzustand $q_0\in Q$\\
+$F$...akzeptierende Endzustände $F \subseteq Q$
 \end{karte}
 \begin{karte}{NTM\\Nichtdeterministische Turing-Maschine}
-$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$\\$Q$...Zustandsmenge $\Sigma$...Eingabealphabet\\$\Gamma$...Bandalphabet mit $\Gamma\subseteq\Sigma\cup\{\blank\}$\\$\delta$...Übergangsfkt. $Q\times\Gamma\rightarrow 2^{Q\times\Gamma\times\{L,R,N\}}$\\$q_0$...Startzustand $q_0\in Q$\\$F$...akzeptierende Endzustände $F \subseteq Q$
+$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$\\
+$Q$...Zustandsmenge\\
+$\Sigma$...Eingabealphabet\\
+$\Gamma$...Bandalphabet mit $\Gamma\subseteq\Sigma\cup\{\blank\}$\\
+$\delta$...Übergangsfkt. $Q \times \Gamma \rightarrow 2~\widehat{\ } (Q \times \Gamma \times \{L,R,N\})$\\
+$q_0$...Startzustand $q_0\in Q$\\
+$F$...akzeptierende Endzustände $F \subseteq Q$
 \end{karte}
 \begin{karte}{Entscheidungsproblem}
-Frage nach Entscheidbarkeit
+Als Entscheidungsproblem bezeichnet man die Frage, ob und wie für eine gegebene Eigenschaft ein Entscheidungsverfahren formuliert werden kann.
 \end{karte}
 \begin{karte}{(Un-)Entscheidbarkeit}
-Ob allen Elementen einer Menge eine Eigenschaft eindeutig nachgewiesen (bzw das Gegenteil nachgewiesen) werden kann.
+Eine Eigenschaft auf einer Menge heißt entscheidbar (auch rekursiv, rekursiv ableitbar), wenn es ein Entscheidungsverfahren für sie gibt. Ein Entscheidungsverfahren ist ein Algorithmus, der für jedes Element der Menge beantworten kann, ob es die Eigenschaft hat oder nicht. Wenn es kein solches Entscheidungsverfahren gibt, dann nennt man die Eigenschaft unentscheidbar.
 \end{karte}
 \begin{karte}{Semi-Entscheidbarkeit}
-Ob den Elementen einer Menge, die die Eigenschaft haben, die Eigenschaft eindeutig nachgewiesen werden kann.
+Eine Menge $M$ heiße semi-entscheidbar, wenn die partielle charakteristische Funktion $x_M: \mathbb{N} \rightarrow \{1\}$ von $M$ berechenbar ist.\\
+\end{karte}
+\begin{karte}{Äquivalente Aussagen}
+\begin{itemize}
+    \setlength{\itemindent}{-0.5cm}
+    \setlength{\itemsep}{-0.1cm}
+    \item $M$ ist rekursiv aufzählbar.
+    \item $M$ ist semi-entscheidbar.
+    \item $M$ ist vom Chomsky-Typ 0.
+    \item $M$ ist die Menge aller Berechnungsergebnisse einer \\Turing-Maschine.
+    \item $M$ ist Definitionsbereich einer berechenbaren Funktion.
+    \item $M$ ist Wertebereich einer berechenbaren Funktion.
+    \item $M$ ist endlich oder Wertebereich einer injektiven berechenbaren Funktion.
+    \item $M$ liegt in der Klasse $\Sigma_1^0$ der arithmetischen Hierarchie.
+    \item $M$ lässt sich many-one auf das Halteproblem reduzieren.
+\end{itemize}
 \end{karte}
 \begin{karte}{Co-Semi-Entscheidbarkeit}
 Ob den Elementen einer Menge, die die Eigenschaft nicht haben, das Gegenteil der Eigenschaft eindeutig nachgewiesen werden kann.
 \end{karte}
 \begin{karte}{Aufzählbarkeit}
-Eigenschaft einer Menge, dass es eine "Generatorfunktion" gibt, die alle Elemente aufzählt
+Eigenschaft einer Menge, dass es eine ``Generatorfunktion'' gibt, die alle Elemente aufzählt
 \end{karte}
 \begin{karte}{Abzählbarkeit}
 Menge, die die gleiche Mächtigkeit wie $\mathbb{N}$ hat (eindimensional unendlich bzw abzählbar unendlich)
@@ -79,14 +100,14 @@ P ist LOOP Programm, wenn von der Form:\\$x_i:=x_j+n$,\\$x_i:=x_j-n$,\\$LOOP x_i
 \begin{lstlisting}[mathescape=true]
 ADD $x_1$ $x_2$:
 $x_0$ := $x_1$ + 0;
-LOOP $x_2$ DO $x_0$ = $x_0$ + 1 END
+LOOP $x_2$ DO $x_0$ := $x_0$ + 1 END
 \end{lstlisting}
 \end{karte}
 \begin{karte}{LOOP-Programm: SUB-Funktion}
 \begin{lstlisting}[mathescape=true]
 SUB $x_1$ $x_2$:
 $x_0$ := $x_1$ + 0;
-LOOP $x_2$ DO $x_0$ = $x_0$ - 1 END
+LOOP $x_2$ DO $x_0$ := $x_0$ - 1 END
 \end{lstlisting}
 \end{karte}
 \begin{karte}{LOOP-Programm: MUL-Funktion}
@@ -105,8 +126,15 @@ LOOP $x_2$ DO MUL $x_0$ $x_1$ END
 \end{karte}
 \begin{karte}{LOOP-Programm: DIV-Funktion}
 \begin{lstlisting}[mathescape=true]
+DIV $x_1$ $x_2$:
+$x_0$ := $x_1$;
+LOOP $x_1$ DO:
+    $x_3$ := $x_0$ + 0;
+    MUL $x_3$ $x_2$;
+    SUB $x_3$ $x_1$;
+    IF $x_1$ != 0 THEN $x_0$ := $x_0$ - 1 END
+END
 \end{lstlisting}
-\[tbd\]
 \end{karte}
 \begin{karte}{LOOP-Programm: MAX-Funktion}
 \begin{lstlisting}[mathescape=true]
@@ -119,37 +147,74 @@ ADD $x_0$ $x_2$
 \begin{karte}{LOOP-Programm: MIN-Funktion}
 \begin{lstlisting}[mathescape=true]
 MIN $x_1$ $x_2$:
-$x_0$ = $x_1$ + 0;
+$x_0$ := $x_1$ + 0;
 MAX $x_1$ $x_2$;
 ADD $x_0$ $x_2$;
 SUB $x_0$ $x_1$
 \end{lstlisting}
+(beide aufaddieren, davon das Maximum abziehen)
 \end{karte}
 \begin{karte}{LOOP-Programm: MOD-Funktion}
 \begin{lstlisting}[mathescape=true]
 MOD $x_1$ $x_2$:
+$x_1$ := $x_1$ + 1;
 LOOP $x_2$ DO:
-    LOOP $x_1$ DO $x_0$ = $x_1$ + 0 END;
+    LOOP $x_1$ DO $x_0$ := $x_1$ + 0 END;
     SUB $x_1$ $x_2$
+END;
+$x_1$ := $x_1$ - 1
+\end{lstlisting}
+\end{karte}
+\begin{karte}{LOOP-Programm: KGV-Funktion}
+\begin{lstlisting}[mathescape=true]
+KGV $x_1$ $x_2$:
+$x_0$ := $x_1$ + 1;
+$x_3$ := $x_1$ + 0;
+MUL $x_3$ $x_2$;
+LOOP $x_3$ DO:
+    $x_4$ := $x_0$ + 0;
+    MOD $x_4$ $x_2$;
+    IF $x_4$ != 0 THEN ADD $x_0$ $x_1$ END
 END
 \end{lstlisting}
 \end{karte}
 \begin{karte}{LOOP-Programm: GGT-Funktion}
 \begin{lstlisting}[mathescape=true]
 GGT $x_1$ $x_2$:
-$x_4$ = $x_1$ + 0;
-LOOP $x_4$ DO:
-    LOOP $x_2$ DO:
-        $x_5$ = $x_2$ + 0;
-        MOD $x_5$ $x_1$;
-        $x_1$ = $x_2$ + 0
-    END;
-    $x_2$ = $x_5$ + 0
-END;
-$x_0$ = $x_1$
+$x_0$ := $x_1$ - 1;
+$x_3$ := $x_1$ + 0;
+MUL $x_3$ $x_2$;
+LOOP $x_1$ DO:
+    $x_4$ := $x_0$ + 0;
+    MOD $x_4$ $x_1$;
+    IF $x_4$ != 0 THEN $x_0$ := $x_0$ - 1 END
+    $x_4$ := $x_0$ + 0;
+    MOD $x_4$ $x_2$;
+    IF $x_4$ != 0 THEN $x_0$ := $x_0$ - 1 END
+END
 \end{lstlisting}
 \end{karte}
-\begin{karte}{LOOP-Programm: Fallunterscheidung}
+\begin{karte}{LOOP-Programm: GGT-Funktion\\(in Abhängigkeit von KGV)}
+\begin{lstlisting}[mathescape=true]
+GGT $x_1$ $x_2$:
+$x_0$ := $x_1$ + 0;
+MUL $x_0$ $x_2$;
+$x_3$ := $x_1$ + 0;
+KGV $x_3$ $x_2$;
+DIV $x_0$ $x_3$
+\end{lstlisting}
+\end{karte}
+\begin{karte}{LOOP-Programm: KGV-Funktion\\(in Abhängigkeit von GGT)}
+\begin{lstlisting}[mathescape=true]
+KGV $x_1$ $x_2$:
+$x_0$ := $x_1$ + 0;
+MUL $x_0$ $x_2$;
+$x_3$ := $x_1$ + 0;
+GGT $x_3$ $x_2$;
+DIV $x_0$ $x_3$
+\end{lstlisting}
+\end{karte}
+\begin{karte}{LOOP-Programm: Fallunterscheidung (IF)}
 \begin{lstlisting}[mathescape=true]
 IF $x_0$ != 0 THEN P END:
     LOOP $x_0$ DO $x_1$ := 1 END;
@@ -158,15 +223,16 @@ IF $x_0$ != 0 THEN P END:
 \end{karte}
 \begin{karte}{WHILE-Programm}
 \begin{lstlisting}[mathescape=true]
-P ::= x_i := x_j + c
-P ::= x_i := x_j - c
+P ::= $x_i$ := $x_j$ + c
+P ::= $x_i$ := $x_j$ - c
 P ::= P; P
-P ::= LOOP x_i DO P END
-P ::= WHILE x_i \neq 0 DO P END
+P ::= LOOP $x_i$ DO P END
+P ::= WHILE $x_i \neq 0$ DO P END
 \end{lstlisting}
 \end{karte}
 \begin{karte}{Kolmogorov-Komplexität}
-Maß für die Strukturiertheit einer Zeichenkette, gegeben durch die Länge des kürzesten Programms, das diese Zeichenkette erzeugt.
+Maß für die Strukturiertheit einer Zeichenkette.\\
+Gegeben durch die Länge des kürzesten Programms, das diese Zeichenkette erzeugt.
 \end{karte}
 \begin{karte}{Many-One-Reduktion}
 Problem $A$ ist auf $B$ many-one-reduzierbar ($A \leq_m B$), falls es eine berechenbare Funktion $f:A\rightarrow B$ gibt.
@@ -175,67 +241,186 @@ Problem $A$ ist auf $B$ many-one-reduzierbar ($A \leq_m B$), falls es eine berec
 Falls man $n$ Objekte auf $m$ Mengen ($n,m>0$) verteilt und $n>m$ gilt, gibt es mindestens eine Menge, die mehr als 1 Objekt enthält. Auch: Taubenschlagprinzip, Dirichlet-Prinzip.
 \end{karte}
 \begin{karte}{Satz von Rice}
-Es ist unmöglich, eine beliebige, nicht-triviale Eigenschaft der erzeugten Funktion einer Turing-Maschine algorithmisch zu entscheiden. Trivial wäre "immer akzeptieren" oder "immer verwerfen".
+Es ist unmöglich, eine beliebige, nicht-triviale Eigenschaft der erzeugten Funktion einer Turing-Maschine algorithmisch zu entscheiden.\\
+Trivial wäre ``immer akzeptieren'' oder ``immer verwerfen''.
 \end{karte}
 \begin{karte}{PKP oder PCP\\Postsches Korrespondenzproblem}
 Beispiel für ein unentscheidbares Problem.
 \end{karte}
 \begin{karte}{Äquivalenzproblem}
-\[tbd\]
+Das Problem, zu entscheiden, ob zwei formale Definitionen von zwei Sprachen $L_1$ und $L_2$ äquivalent sind, also $L_1 = L_2$ gilt.\\
+Die Sprachen können durch Grammatiken, Automaten oder ganz anders definiert sein.
 \end{karte}
-\begin{karte}{P, NP, coNP, PSPACE}
-\[tbd\]
+\begin{karte}{Komplexitätsklassen und deren Beziehungen}
+\begin{itemize}
+    \setlength{\itemindent}{-0.5cm}
+    \setlength{\itemsep}{-0.1cm}
+    \item P, NP, coNP, PSPACE, EXPTIME, NEXPTIME, EXPSPACE, NEXPSPACE sind Komplexitätsklassen.
+    \item Beziehungen:
+    \begin{itemize}
+        \item $\textrm{P} \subseteq \textrm{NP} \subseteq \textrm{PSPACE} \subseteq \textrm{EXPTIME}$
+        \item $\textrm{EXPTIME} \subseteq \textrm{NEXPTIME} \subseteq \textrm{EXPSPACE}$
+        \item $\textrm{EXPSPACE} = \textrm{NEXPSPACE}$
+        \item $\textrm{P} \subset \textrm{EXPTIME}$
+        \item $\textrm{P} = \textrm{coP}$ dh $\textrm{P} = \textrm{NP} \Leftrightarrow \textrm{NP} = \textrm{coNP}$
+    \end{itemize}
+\end{itemize}
+\end{karte}
+\begin{karte}{P, NP, coNP}
+\begin{itemize}
+    \setlength{\itemindent}{-0.5cm}
+    \setlength{\itemsep}{-0.1cm}
+    \item P, NP, coNP sind Komplexitätsklassen.
+    \item P (auch PTIME) enthält die Entscheidungsprobleme, die in Polynomialzeit durch DTM lösbar sind. (Klasse der ``praktisch lösbaren'' Probleme)
+    \item NP enthält die Entscheidungsprobleme (die von einer NTM in Polynomialzeit gelöst werden können), bei denen es für positive Antworten Beweise (Zertifikate) gibt, die in Polynomialzeit verifiziert werden können.
+\end{itemize}
+\end{karte}
+\begin{karte}{PSPACE, EXPTIME, NEXPTIME}
+\begin{itemize}
+    \setlength{\itemindent}{-0.5cm}
+    \setlength{\itemsep}{-0.1cm}
+    \item PSPACE, EXPTIME, NEXPTIME sind\\Komplexitätsklassen.
+    \item PSPACE enthält die Entscheidungsprobleme, die von einer DTM mit polynomiellem Platz (in beliebig langer Zeit) entschieden werden können.
+    \item EXPTIME enthält die Entscheidungsprobleme, die von einer DTM mit durch $O(2^{p(n)})$ beschränkter Zeit entschieden werden können.
+    \item NEXPTIME enthält die Entscheidungsprobleme, die von einer NTM mit durch $O(2^{p(n)})$ beschränkter Zeit entschieden werden können.
+\end{itemize}
+\end{karte}
+\begin{karte}{EXPSPACE, NEXPSPACE}
+\begin{itemize}
+    \setlength{\itemindent}{-0.5cm}
+    \setlength{\itemsep}{-0.1cm}
+    \item EXPSPACE, NEXPSPACE sind Komplexitätsklassen.
+    \item EXPSPACE enthält die Entscheidungsprobleme, die von einer DTM mit durch $O(2^{p(n)})$ beschränktem Platz (in beliebig langer Zeit) entschieden werden können.
+    \item NEXPSPACE enthält die Entscheidungsprobleme, die von einer NTM mit durch $O(2^{p(n)})$ beschränktem Platz (in beliebig langer Zeit) entschieden werden können. Es gilt $\textrm{NEXPSPACE} = \textrm{EXPSPACE}$.
+\end{itemize}
 \end{karte}
 \begin{karte}{(P,NP,PSPACE)-hart}
-\[tbd\]
+Auch als (P,NP,PSPACE)-Schwere bezeichnet.\\
+Die formale Sprache $L' \subseteq \Sigma*$ ist NP-hart, wenn gilt:\\
+$\forall L \in \textrm{NP}: L \leq_p L'$\\
+(alle $L$ aus NP sind polynomiell reduzierbar auf $L'$)
 \end{karte}
 \begin{karte}{(P,NP,PSPACE)-vollständig}
-\[tbd\]
+$P$ ist NP-vollständig, wenn es in NP liegt und NP-hart ist. Dh alle Probleme in NP sind polynomiell reduzierbar auf $P$ und $P$ ist polynomiell reduzierbar auf alle anderen NP-harten Probleme.
 \end{karte}
 \begin{karte}{Wortproblem Deterministischer Endlicher Automaten}
-\[tbd\]
+Das Wortproblem ist das Entscheidungsproblem, ob ein gegebenes Wort zu einer Sprache gehört, oder nicht. Ist (semi-)Entscheidbar, wenn die Sprache dies auch ist.
 \end{karte}
-\begin{karte}{SAT\\Erfüllbarkeitsproblem}
-Entscheidungsproblem, ob eine aussagenlogische Formel erfüllbar ist
+\begin{karte}{SAT\\Erfüllbarkeitsproblem (der Aussagenlogik)}
+Entscheidungsproblem, ob eine aussagenlogische Formel erfüllbar ist. SAT ist NP-vollständig.
 \end{karte}
 \begin{karte}{Kleene-Stern}
+Die kleenesche Hülle (auch endlicher Abschluss, Kleene-*-Abschluss, Verkettungshülle oder Sternhülle genannt) eines Alphabets $\Sigma$ oder einer formalen Sprache $L$ ist die Menge aller Wörter, die durch beliebige Konkatenation (Verknüpfung) von Symbolen des Alphabets $\Sigma$ bzw. von Wörtern der Sprache $L$ gebildet werden können, wobei das leere Wort $\varepsilon$ inbegriffen ist.
+\end{karte}
+\begin{karte}{Liste einiger P-vollständigen Probleme}
 \[tbd\]
 \end{karte}
-\begin{karte}{Liste von P-vollständigen Problemen}
-\[tbd\]
+\begin{karte}{Liste einiger NP-vollständigen Probleme}
+\begin{itemize}
+    \setlength{\itemindent}{-0.5cm}
+    \setlength{\itemsep}{-0.1cm}
+    \item Erfüllbarkeitsproblem (SAT)
+    \item Cliquenproblem (CLIQUE)
+    \item Mengenpackungsproblem (SET PACKING)
+    \item Knotenüberdeckungsproblem (VERTEX COVER)
+    \item Mengenüberdeckungsproblem (SET COVERING)
+    \item (un)gerichtetes Hamiltonkreisproblem\\((UN)DIRECTED HAMILTONIAN CIRCUIT)
+\end{itemize}
 \end{karte}
-\begin{karte}{Liste von NP-vollständigen Problemen}
-\[tbd\]
+\begin{karte}{Liste einiger NP-vollständigen Probleme}
+\begin{itemize}
+    \setlength{\itemindent}{-0.5cm}
+    \setlength{\itemsep}{-0.1cm}
+    \item 3-SAT
+    \item Kantenfärbungsproblem (CHROMATIC NUMBER)
+    \item Problem der exakten Überdeckung (EXACT COVER)
+    \item Steinerbaumproblem (STEINER TREE)
+    \item Hitting-Set-Problem (HITTING SET)
+    \item Rucksackproblem (KNAPSACK)
+    \item Partitionsproblem (PARTITION)
+    \item Maximaler Schnitt (MAX CUT)
+\end{itemize}
+\end{karte}
+\begin{karte}{Liste einiger PSPACE-vollständigen Probleme}
+\begin{itemize}
+    \setlength{\itemindent}{-0.5cm}
+    \setlength{\itemsep}{-0.1cm}
+    \item hex
+    \item Go-Moku
+    \item Reversi
+\end{itemize}
+\end{karte}
+\begin{karte}{Liste einiger EXPTIME-vollständigen Probleme}
+\begin{itemize}
+    \setlength{\itemindent}{-0.5cm}
+    \setlength{\itemsep}{-0.1cm}
+    \item Dame
+    \item Go
+    \item Schach
+    \item Shogi
+\end{itemize}
 \end{karte}
 \begin{karte}{Formalisieren (Ablauf)}
 \[tbd\]
 \end{karte}
+\begin{karte}{Cliquenproblem (CLIQUE)}
+Entscheidungsproblem der Graphentheorie.\\
+Problem: Gibt es zu einem Graphen $G$ und einer Zahl $n$ eine Clique der Mindestgröße $n$ in $G$?\\
+Eine Clique ist ein Teilgraph, dessen Knoten alle direkt miteinander verbunden sind.
+\end{karte}
+\begin{karte}{Mengenpackungsproblem (SET PACKING)}
+Entscheidungsproblem der Kombinatorik.\\
+Problem: Für eine endliche Menge $U$ und $n$ Teilmengen $S_j~(0 \leq j \leq n)$ von $U$: existieren mindestens $k \leq n$ paarweise disjunkte Teilmengen $S_j~(0 \leq j \leq k)$ von $U$?\\
+Visualisierung: Es existieren $n$ Werkzeugkästen mit unterschiedlichem Inhalt. Es ist eine Teilmenge der Werkzeugkästen gesucht, in der jedes Werkzeug exakt einmal vorhanden ist.
+\end{karte}
+\begin{karte}{Knotenüberdeckungsproblem (VERTEX COVER)}
+Entscheidungsproblem der Graphentheorie.\\
+Problem: Für einen einfachen Graphen $G$ (ungerichtet, ohne Mehrfachkanten oder Schleifen) und eine Zahl $k \in \mathbb{N}$ prüfe, ob es eine Teilmenge $U$ der Knoten mit $|U| \leq k$ gibt, sodass jede Kante von $G$ mit mindestens einem Knoten aus $U$ verbunden ist.
+\end{karte}
+\begin{karte}{Mengenüberdeckungsproblem (SET COVER)}
+Entscheidungsproblem der Kombinatorik.\\
+Problem: Für eine Menge $U$ und $n$ Teilmengen $S_j~(0 \leq j \leq n)$ von $U$ und einer Zahl $k \leq n$ mit $k, n \in \mathbb{N}$ prüfe, ob eine Vereinigung von $k$ oder weniger Teilmengen $S_j~(0 \leq j \leq k)$ existiert, die der Menge $U$ entspricht.
+\end{karte}
 \begin{karte}{3SAT}
-\[tbd\]
+Variante von SAT (Erfüllbarkeitsproblem der Aussagenlogik).\\
+Problem: Ist eine aussagenlogische Formel $F$, die in konjunktiver Normalform mit höchstens 3 Literalen pro Klausel gegeben ist, erfüllbar?\\
+z.B.: $F = (\lnot x_1\lor x_2\lor x_3)\land(x_2\lor\lnot x_3 \lor x_4)\land(x_1\lor\lnot x_2)$
 \end{karte}
 \begin{karte}{QBF}
 \[tbd\]
 \end{karte}
-\begin{karte}{LBA\\Linear Bounded Automaton}
-\[tbd\]
+\begin{karte}{LBA\\Linear Bounded Automaton\\Linear beschränkte Turingmaschine}
+TM, die den Bereich des Bandes, auf dem die Eingabe steht, nicht verlässt (bzw verlassen darf).\\
+Um ein größeres Band zu simulieren, kann das Bandalphabet mehr Elemente (zB Tupel) erhalten.
 \end{karte}
 \begin{karte}{Pränexform}
-\[tbd\]
+Mögliche Normalform, in der Aussagen der Prädikatenlogik dargestellt werden können.\\
+Benötigt als Vorstufe zur Skolemform.\\
+Pränexform ist genau dann erfüllt, wenn alle Quantoren außerhalb bzw. vor der eigentlichen Formel stehen.\\
+Umformung in Pränexform: bereinigen (dabei werden ggf wegen Negationsoperationen Quantoren negiert), Quantoren an den Anfang schieben.
 \end{karte}
 \begin{karte}{Skolemform}
+Formel, die in der Normalform nach Alber Thoralf Skolem ist.\\
+Hilfreich zur Prüfung der Erfüllbarkeit. Eine Formelmenge ist genau dann erfüllbar, wenn ihre Skolemform erfüllbar ist. In anderen Aspekten stimmt eine Formel nicht zwangsweise mit ihrer Skolemform überein.
+\end{karte}
+\begin{karte}{Klauselform\\Klauselnormalform}
+Formel in konjunktiver Normalform, bei der die Konjunktionen in Mengenschreibweise zusammengefasst werden.\\
+Eine Formal in Klauselform ist eine logische Verknüpfung von Literalen, die als disjunkte Normalform oder konjunktive Normalform notiert ist.
+\end{karte}
+\begin{karte}{$\models$\\Schlussfolgerung, Inferenz}
 \[tbd\]
 \end{karte}
-\begin{karte}{Klauselform}
+\begin{karte}{Resolutionsverfahren\\(Aussagenlogik)}
 \[tbd\]
 \end{karte}
-\begin{karte}{$\models$}
+\begin{karte}{Resolutionsverfahren\\(Prädikatenlogik)}
 \[tbd\]
 \end{karte}
-\begin{karte}{Resolutionsverfahren}
+\begin{karte}{Resolvent(e)}
 \[tbd\]
 \end{karte}
 \begin{karte}{Unifikator}
-\[tbd\]
+Eine Substitution $S$ heißt eine Vereinheitlichung (Unifikator) der Literale $L_1, L_2, ... , L_m$, wenn durch die Anwendung von $S$ die Argumente aller Literale zur Übereinstimmung gebracht werden, d.h. wenn $S(L_1) = S(L_2) = \cdots = S(L_m)$
 \end{karte}
 \begin{karte}{Allgemeinster Unifikator}
 \[tbd\]
